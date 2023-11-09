@@ -56,5 +56,16 @@ for product, price, count in combinations:
 # Convert the combinations to a pandas DataFrame
 df = pd.DataFrame(combinations, columns=['Product', 'Price', 'Count'])
 
+# Rename the DataFrame columns
+df = df.rename(columns={
+    'Product': 'sstt شرح کالا / خدمت',
+    'Price': 'fee مبلغ واحد',
+    'Count': 'am تعداد / مقدار',
+    'takhfif': 'dis مبلغ تخفیف'
+})
+
+# Define the columns you want to write to Excel
+columns = ['sstt شرح کالا / خدمت', 'fee مبلغ واحد', 'am تعداد / مقدار', 'dis مبلغ تخفیف']
+
 # Write the DataFrame to an Excel file
-df.to_excel('C:/Users/z.mehrasa/Desktop/invoice/combinations.xlsx', index=False)
+df.to_excel('C:/Users/z.mehrasa/Desktop/invoice/combinations.xlsx', columns=columns, index=False)

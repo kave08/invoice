@@ -1,6 +1,4 @@
-# random invoice generator
-
-# Product Combination Generator
+# Random Invoice Generator
 
 This Python script generates random combinations of products based on a given total price. It then writes these combinations to specific fields in an Excel template.
 

@@ -1,5 +1,5 @@
 import random
-# import pandas as pd
+import pandas as pd
 
 # Define your data
 products = {
@@ -50,8 +50,11 @@ combinations.append(("takhfif", total_price, 1))
 for product, price, count in combinations:
     print("Product: ", product, "Price: ", price, "Count: ", count)
 
-# # Convert the combinations to a pandas DataFrame
-# df = pd.DataFrame(combinations, columns=['Product', 'Price', 'Count'])
+# Convert the combinations to a pandas DataFrame
+df = pd.DataFrame(combinations, columns=['Product', 'Price', 'Count'])
 
-# # Write the DataFrame to an Excel file
-# df.to_excel('combinations.xlsx', index=False)
+# Write the DataFrame to an Excel file
+df.to_excel('C:/Users/z.mehrasa/Desktop/invoice/combinations.xlsx', index=False)
+
+
+#how to run : python main.py

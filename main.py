@@ -41,11 +41,14 @@ while total_price > min(products.values()):
     # Subtract the total cost of these products from the total price
     total_price -= price * count
 
-
     # Add the combination to the list
     combinations.append((product, price, count))
 
+    # Remove the chosen product from the products dictionary
+    del products[product]
+
 combinations.append(("takhfif", total_price, 1))
+
 # Print the combinations
 for product, price, count in combinations:
     print("Product: ", product, "Price: ", price, "Count: ", count)
@@ -55,6 +58,3 @@ df = pd.DataFrame(combinations, columns=['Product', 'Price', 'Count'])
 
 # Write the DataFrame to an Excel file
 df.to_excel('C:/Users/z.mehrasa/Desktop/invoice/combinations.xlsx', index=False)
-
-
-#how to run : python main.py

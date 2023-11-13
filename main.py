@@ -67,6 +67,5 @@ df = df.rename(columns={
 columns = ['sstt شرح کالا / خدمت', 'fee مبلغ واحد', 'am تعداد / مقدار']
 
 # Write the DataFrame to an Excel file
-# df.to_excel('C:/Users/z.mehrasa/Desktop/invoice/combinations.xlsx', columns=columns, index=False)
 df.to_excel('C:/Users/z.mehrasa/Desktop/invoice/combinations.xlsx', index=False)
 

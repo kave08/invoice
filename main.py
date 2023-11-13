@@ -47,7 +47,7 @@ while total_price > min(products.values()):
     # Remove the chosen product from the products dictionary
     del products[product]
 
-combinations.append(("takhfif", total_price, 1))
+combinations.append(("تخفیف", total_price, 1))
 
 # Print the combinations
 for product, price, count in combinations:
@@ -61,11 +61,12 @@ df = df.rename(columns={
     'Product': 'sstt شرح کالا / خدمت',
     'Price': 'fee مبلغ واحد',
     'Count': 'am تعداد / مقدار',
-    'takhfif': 'dis مبلغ تخفیف'
 })
 
 # Define the columns you want to write to Excel
-columns = ['sstt شرح کالا / خدمت', 'fee مبلغ واحد', 'am تعداد / مقدار', 'dis مبلغ تخفیف']
+columns = ['sstt شرح کالا / خدمت', 'fee مبلغ واحد', 'am تعداد / مقدار']
 
 # Write the DataFrame to an Excel file
-df.to_excel('C:/Users/z.mehrasa/Desktop/invoice/combinations.xlsx', columns=columns, index=False)
+# df.to_excel('C:/Users/z.mehrasa/Desktop/invoice/combinations.xlsx', columns=columns, index=False)
+df.to_excel('C:/Users/z.mehrasa/Desktop/invoice/combinations.xlsx', index=False)
+

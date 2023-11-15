@@ -38,6 +38,11 @@ while total_price > min(products.values()):
     # Choose a random count up to the maximum
     count = random.randint(1, max_count)
 
+       # If the count is equal to 1, choose a random count up to the maximum again
+    while count == 1:
+       count = random.randint(1, max_count)
+
+
     # Subtract the total cost of these products from the total price
     total_price -= price * count
 
@@ -69,3 +74,4 @@ columns = ['sstt شرح کالا / خدمت', 'fee مبلغ واحد', 'am تع�
 # Write the DataFrame to an Excel file
 df.to_excel('C:/Users/z.mehrasa/Desktop/invoice/combinations.xlsx', index=False)
 
+#for run this code copyt this *** python3 main.py ***

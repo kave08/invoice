@@ -1,4 +1,3 @@
-import itertools
 import random
 import pandas as pd
 
@@ -24,43 +23,36 @@ total_price = int(input("Enter the total price: "))
 # Initialize an empty list to store the combinations
 combinations = []
 
-# Define the weight coefficients for each product
-weight_coefficients = {
-  'اکسیدان': 0.4,
-  'رنگ مو': 0.2,
-  'واکس مو': 0.1,
-  # add other products with their corresponding weight coefficients
-}
+# While the total price is greater than the minimum product price
+while total_price > min(products.values()):
+   # Define the weights for each product
+   weights = [0.6, 0.2, 0.1] + [0.01] * (len(products) - 3)
 
-# Create a list of products with their weight coefficients
-products_with_weights = [(product, price, weight_coefficients[product]) for product, price in products.items()]
+   # Choose a random product
+   product, price = random.choices(list(products.items()), weights=weights)[0]
 
-# Generate all combinations of the products
-for combination in itertools.product(products_with_weights, repeat=len(products)):
-   # Initialize the total price for this combination
-   total_price_for_combination = total_price
+   # If the chosen price is greater than the total price, continue with the next iteration
+   if price > total_price:
+       continue
 
-   # For each product in the combination
-   for product, price, weight in combination:
-       # Calculate the maximum possible count for the chosen price
-       max_count = total_price_for_combination // price
+   # Calculate the maximum possible count for the chosen price
+   max_count = total_price // price
 
-       # Choose a random count up to the maximum
-       count = random.randint(1, max_count)
+   # Choose a random count up to the maximum
+   count = random.randint(1, max_count)
 
-       # If the count is equal to 1, choose a random count up to the maximum again
-       while count == 1:
-           count = random.randint(1, max_count)
 
-       # Subtract the total cost of these products from the total price
-       total_price_for_combination -= price * count
 
-       # Add the combination to the list
-       combinations.append((product, price, count))
+   # Subtract the total cost of these products from the total price
+   total_price -= price * count
 
-   # If the total price for this combination is greater than the minimum product price, add it to the combinations
-   if total_price_for_combination > min(products.values()):
-       combinations.append(("تخفیف", total_price_for_combination, 1))
+   # Add the combination to the list
+   combinations.append((product, price, count))
+
+   # Remove the chosen product from the products dictionary
+   del products[product]
+
+combinations.append(("تخفیف", total_price, 1))
 
 # Print the combinations
 for product, price, count in combinations:
@@ -81,3 +73,4 @@ columns = ['sstt شرح کالا / خدمت', 'fee مبلغ واحد', 'am تع�
 
 # Write the DataFrame to an Excel file
 df.to_excel('C:/Users/z.mehrasa/Desktop/invoice/combinations.xlsx', index=False)
+

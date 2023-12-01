@@ -73,4 +73,3 @@ columns = ['sstt شرح کالا / خدمت', 'fee مبلغ واحد', 'am تع�
 
 # Write the DataFrame to an Excel file
 df.to_excel('C:/Users/z.mehrasa/Desktop/invoice/combinations.xlsx', index=False)
-

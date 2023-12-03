@@ -50,6 +50,7 @@ for product in products:
 for combination in combinations:
     if total_price > combination['price']:
         product_count = int(total_price/combination['price'])
+        total_price -= combination['price'] * product_count
         product_count += combination['count']
         new_combination = {'name': combination['name'], 'price': combination['price'], 'count': product_count, 'total_price': combination['price']*product_count}
         combination.update(new_combination)
